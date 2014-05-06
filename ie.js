@@ -17,18 +17,6 @@ var ie = (function(){
 			return true;
 		}
 	};
-	var betterOrEqual = function(e){
-		isNumber(e);
-		if(MSIE) {
-			if(MSIE[1] >= e) {
-				return true;
-			} else {
-				return false;
-			}
-		} else {
-			return true;
-		}
-	};
 	var worst = function(e){
 		isNumber(e);
 		if(MSIE) {
@@ -42,9 +30,40 @@ var ie = (function(){
 		}
 	};
 
+
+	var betterOrEqual = function(e){
+		isNumber(e);
+		if(MSIE) {
+			if(MSIE[1] >= e) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return true;
+		}
+	};
+
+	var equal = function(e){
+		isNumber(e);
+		if(MSIE) {
+			if(MSIE[1] == e) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	};
+
+	var version = MSIE ? MSIE[1] : false;
+
 	return {
 		better: better,
 		worst: worst,
-		betterOrEqual: betterOrEqual
+		betterOrEqual: betterOrEqual,
+		equal: equal,
+		version: version,	v: version
 	}
 })();
