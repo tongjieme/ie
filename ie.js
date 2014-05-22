@@ -60,10 +60,10 @@ var ie = (function(){
 	var version = MSIE ? MSIE[1] : false;
 
 	return {
-		better: better,
-		worst: worst,
-		betterOrEqual: betterOrEqual,
-		equal: equal,
-		version: version,	v: version
+		gt: better,
+		lt: worst,
+		gteq: betterOrEqual,
+		eq: equal,
+		v: version
 	}
 })();
